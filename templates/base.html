@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href={% block icon %}{% endblock icon %} type="image/x-icon">
+    <title>{% block title %}Accueil{% endblock title %} | EzMeal</title>
+    {% block css %}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'ezmeal_app/css/styles.css' %}"
+              media="screen,projection">
+        <link rel="stylesheet" type="text/css" href="{% static 'ezmeal_app/css/materialize.min.css' %}"
+              media="screen,projection">
+    {% endblock %}
+    {% block javascript %}
+        <script src="{% static "ezmeal_app/js/jquery-3.4.1.js" %}"></script>
+        <script src="{% static "ezmeal_app/js/materialize.min.js" %}"></script>
+        <script src="{% static "ezmeal_app/js/scripts.js" %}"></script>
+    {% endblock %}
+
+</head>
+
+<body>
+<header>
+    <nav>
+        {% block nav %}
+            <div class="nav-wrapper">
+                {% block logo %}
+                    <a href="#" class="brand-logo"><img src="{% static 'ezmeal_app/images/ezmeal_logo.png' %}"
+                                                        class="responsive" alt="ezMeal logo">ezMeal</a>
+                {% endblock %}
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a>Mes recettes</a></li>
+                    <li><a>Gérer ma semaine</a></li>
+                    <li><a>Aide</a></li>
+                </ul>
+                <ul class="sidenav" id="mobile-demo">
+                    <li><a>Mes recettes</a></li>
+                    <li><a>Gérer ma semaine</a></li>
+                    <li><a>Aide</a></li>
+                </ul>
+            </div>
+        {% endblock %}
+    </nav>
+</header>
+<section id="content">
+    {% block content %}{% endblock %}
+</section>
+
+</body>
+</html>
